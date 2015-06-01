@@ -26,4 +26,5 @@ module.exports =  {
         dest: '.build/',
         expand:true
     },
+
 };

@@ -2,29 +2,47 @@
     'use strict';
     angular.module('tombola.snapCardGame');
 
-    var hand1 = [1,2,3,4,5];
 
-    var hand2 = [1,2,3,4,5];
+    var deck = [];
 
-    var deck = [hand1,hand2];
 
-    hand1.sort(function(){
+    var suits = ['Trebuchet', 'Rare Pepe', 'Neckbeard', 'Shrek'];
+
+    var makeDeck = function() {
+
+        for (var i = 0; i < suits.length; i++) {
+            for (var j = 0; j < 5; j++) {
+                deck[i*5 + j] = suits[i];
+            }
+        }
+
+    };
+
+makeDeck();
+    deck.sort(function(){
         return (Math.round(Math.random())-0.5);
     });
 
-    hand2.sort(function(){
-        return (Math.round(Math.random())-0.5);
-    });
+    var hand1 = deck.splice(0,10);
+
+    var hand2 = deck.splice(0,10);
+
 
     for (var i = 0; i < hand1.length; i++) {
+
         console.log(hand1[i]);
 
        console.log(hand2[i]);
 
 
-        if (hand1[i] == hand2[i]) {
-            console.log('snap');
+        if (hand1[i] === hand2[i]) {
+            alert('snap');
+
         }
+        else {
+            alert('continue');
+        }
+
     }
 
     console.log(deck);
