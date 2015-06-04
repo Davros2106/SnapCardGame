@@ -4,6 +4,9 @@
  */
 (function () {
     'use strict';
+    angular.module('tombola.squareCardGame')
+        .controller('snapCardController', ['$scope', function ($scope){
 
-    // FEED ME CODE....
+            $scope.suits= suits;
+        }]);
 })();

@@ -1,9 +1,13 @@
-/**
- @module Tombola.Core.<MODULE_NAME>
- @class <ENTITY_NAME>
- */
 (function () {
     'use strict';
+    angular.module('tombola.snapCardGame')
 
-    // FEED ME CODE....
+        .directive('cardSpace', function () {
+            return {
+                restrict: 'E',
+                replace: true,
+                template: '<div class="snapCard showImg5"></div>'
+
+            };
+        });
 })();

@@ -36,11 +36,11 @@ makeDeck();
 
 
         if (hand1[i] === hand2[i]) {
-            alert('snap');
+            console.log('snap');
 
         }
         else {
-            alert('continue');
+            console.log('continue');
         }
 
     }
