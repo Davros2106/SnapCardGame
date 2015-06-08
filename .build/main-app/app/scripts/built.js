@@ -17,7 +17,7 @@ angular.module('tombola.snapCardGame',[]);
     var deck = [];
 
 
-    var suits = ['Trebuchet', 'Rare Pepe', 'Neckbeard', 'Shrek'];
+    var suits = [1,2,3,4];
 
     var makeDeck = function() {
 
