@@ -1,4 +1,9 @@
-angular.module('tombola.snapCardGame',[]);
+angular.module('tombola.snapCardGame.gameModel',[]);
+angular.module('tombola.snapCardGame.directives',[]);
+angular.module('tombola.snapCardGame',[
+    'tombola.snapCardGame.gameModel',
+    'tombola.snapCardGame.directives'
+]);
 
 /**
  @module Tombola.Core.<MODULE_NAME>
@@ -11,11 +16,15 @@ angular.module('tombola.snapCardGame',[]);
 })();
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame');
+    angular.module('tombola.snapCardGame.gameModel')
+
+        .service('gameModel', function() {
+
 
             var deck = [];
 
             var suits = [1, 2, 3, 4];
+
 
             var makeDeck = function () {
 
@@ -28,86 +37,78 @@ angular.module('tombola.snapCardGame',[]);
             };
 
             makeDeck();
+
+            console.log(deck);
+
             deck.sort(function () {
                 return (Math.round(Math.random()) - 0.5);
             });
+
 
             var hand1 = deck.splice(0, 10);
 
             var hand2 = deck.splice(0, 10);
 
+            console.log(hand1);
 
             for (var i = 0; i < hand1.length; i++) {
-
                 console.log(hand1[i]);
-
-                console.log(hand2[i]);
-
-
-                if (hand1[i] === hand2[i]) {
-                    console.log('snap');
-
-                }
-                else {
-                    console.log('continue');
-                }
-
             }
 
-            console.log(deck);
+
+            this.getResultSprite = function () {
+
+                if (hand1[i] === '1') {
+                    return ('1');
+                }
+                else if(hand1[i] === '2') {
+                    return ('2');
+                }
+                else if (hand1[i] === '3') {
+                    return ('3');
+                }
+                else if (hand1[i] === '4') {
+                    return ('4');
+                }
+                else {
+                    return ('5');
+                }
+
+            };
+
+            this.getResultSprite1 = function () {
+
+                if (hand2[i] === '1') {
+                    return ('1');
+                }
+                if (hand2[i] === '2') {
+                    return ('2');
+                }
+                if (hand2[i] === '3') {
+                    return ('3');
+                }
+                if (hand2[i] === '4') {
+                    return ('4');
+                }
+                else {
+                    return ('5');
+                }
 
 
-           this.getResultSprite = function () {
+            };
 
-               if (hand1[i] === '1') {
-                   return ('1');
-               }
-               if (hand1[i] === '2') {
-                   return ('2');
-               }
-               if (hand1[i] === '3') {
-                   return ('3');
-               }
-               if (hand1[i] === '4') {
-                   return ('4');
-               }
-               else {
-                   return ('5');
-               }
-
-           };
-
-           this.getResultSprite1 = function () {
-
-           if (hand2[i] === '1') {
-               return ('1');
-           }
-           if (hand2[i] === '2') {
-               return ('2');
-           }
-           if (hand2[i] === '3') {
-               return ('3');
-           }
-           if (hand2[i] === '4') {
-               return ('4');
-           }
-           else {
-               return ('5');
-           }
-
-    };
-
+        });
 
 })();
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame')
+    angular.module('tombola.snapCardGame.directives')
 
         .directive('cardSpace', function () {
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{getResultSprite()}}"></div>'
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite()}}"></div>'
 
             };
         })
@@ -116,9 +117,19 @@ angular.module('tombola.snapCardGame',[]);
         return {
             restrict: 'E',
             replace: true,
-            template: '<div class="snapCard showImg{{getResultSprite1()}}"></div>'
+            template: '<div class="snapCard showImg{{gameModel.getResultSprite1()}}"></div>'
 
         };
     });
 
+})();
+
+(function () {
+    'use strict';
+    angular.module('tombola.snapCardGame')
+
+        .controller('snapCardController',['$scope','gameModel',function ($scope, gameModel){
+
+            $scope.gameModel = gameModel;
+        }]);
 })();

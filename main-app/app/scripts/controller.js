@@ -1,12 +1,10 @@
-/**
- @module Tombola.Core.<MODULE_NAME>
- @class <ENTITY_NAME>
- */
+
 (function () {
     'use strict';
-    angular.module('tombola.squareCardGame')
-        .controller('snapCardController', ['$scope', function ($scope){
+    angular.module('tombola.snapCardGame')
 
-            $scope.suits= suits;
+        .controller('snapCardController',['$scope','gameModel',function ($scope, gameModel){
+
+            $scope.gameModel = gameModel;
         }]);
 })();

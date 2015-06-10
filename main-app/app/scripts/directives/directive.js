@@ -1,12 +1,12 @@
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame')
+    angular.module('tombola.snapCardGame.directives')
 
         .directive('cardSpace', function () {
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{getResultSprite()}}"></div>'
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite()}}"></div>'
 
             };
         })
@@ -15,7 +15,7 @@
         return {
             restrict: 'E',
             replace: true,
-            template: '<div class="snapCard showImg{{getResultSprite1()}}"></div>'
+            template: '<div class="snapCard showImg{{gameModel.getResultSprite1()}}"></div>'
 
         };
     });
