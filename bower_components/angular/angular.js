@@ -1317,7 +1317,7 @@ function getNgAttribute(element, ngAttr) {
      }
      GoodController2.$inject = ['$scope'];
    </file>
-   <file name="style.css">
+   <file name="style.less">
    div[ng-controller] {
        margin-bottom: 1em;
        -webkit-border-radius: 4px;
@@ -2324,7 +2324,7 @@ function publishExternalAPI(angular) {
  * - [`children()`](http://api.jquery.com/children/) - Does not support selectors
  * - [`clone()`](http://api.jquery.com/clone/)
  * - [`contents()`](http://api.jquery.com/contents/)
- * - [`css()`](http://api.jquery.com/css/) - Only retrieves inline-styles, does not call `getComputedStyle()`
+ * - [`less()`](http://api.jquery.com/less/) - Only retrieves inline-styles, does not call `getComputedStyle()`
  * - [`data()`](http://api.jquery.com/data/)
  * - [`detach()`](http://api.jquery.com/detach/)
  * - [`empty()`](http://api.jquery.com/empty/)
@@ -4318,7 +4318,7 @@ function $AnchorScrollProvider() {
                };
              }]);
        </file>
-       <file name="style.css">
+       <file name="style.less">
          #scrollArea {
            height: 280px;
            overflow: auto;
@@ -4369,7 +4369,7 @@ function $AnchorScrollProvider() {
              }
            ]);
        </file>
-       <file name="style.css">
+       <file name="style.less">
          body {
            padding-top: 50px;
          }
@@ -5419,7 +5419,7 @@ function $BrowserProvider() {
            };
          }]);
      </file>
-     <file name="style.css">
+     <file name="style.less">
        p {
          margin: 10px 0 3px;
        }
@@ -15217,7 +15217,7 @@ function $SceDelegateProvider() {
      * See {@link ng.$sce $sce} for enabling strict contextual escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resourceUrl, html, js and css.
+     *   resourceUrl, html, js and less.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -15560,7 +15560,7 @@ function $SceDelegateProvider() {
  * <file name="protractor.js" type="protractor">
  *   describe('SCE doc demo', function() {
  *     it('should sanitize untrusted values', function() {
- *       expect(element.all(by.css('.htmlComment')).first().getInnerHtml())
+ *       expect(element.all(by.less('.htmlComment')).first().getInnerHtml())
  *           .toBe('<span>Is <i>anyone</i> reading this?</span>');
  *     });
  *
@@ -15743,7 +15743,7 @@ function $SceProvider() {
      * escaping.
      *
      * @param {string} type The kind of context in which this value is safe for use.  e.g. url,
-     *   resource_url, html, js and css.
+     *   resource_url, html, js and less.
      * @param {*} value The value that that should be considered trusted/safe.
      * @returns {*} A value that can be used to stand in for the provided `value` in places
      * where Angular expects a $sce.trustAs() return value.
@@ -18008,9 +18008,9 @@ var htmlAnchorDirective = valueFn({
       </file>
       <file name="protractor.js" type="protractor">
         it('should toggle button', function() {
-          expect(element(by.css('button')).getAttribute('disabled')).toBeFalsy();
+          expect(element(by.less('button')).getAttribute('disabled')).toBeFalsy();
           element(by.model('checked')).click();
-          expect(element(by.css('button')).getAttribute('disabled')).toBeTruthy();
+          expect(element(by.less('button')).getAttribute('disabled')).toBeTruthy();
         });
       </file>
     </example>
@@ -18078,9 +18078,9 @@ var htmlAnchorDirective = valueFn({
       </file>
       <file name="protractor.js" type="protractor">
         it('should toggle readonly attr', function() {
-          expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeFalsy();
+          expect(element(by.less('[type="text"]')).getAttribute('readonly')).toBeFalsy();
           element(by.model('checked')).click();
-          expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeTruthy();
+          expect(element(by.less('[type="text"]')).getAttribute('readonly')).toBeTruthy();
         });
       </file>
     </example>
@@ -20823,7 +20823,7 @@ function classDirective(name, selector) {
  * @param {expression} ngClass {@link guide/expression Expression} to eval. The result
  *   of the evaluation can be a string representing space delimited class
  *   names, an array, or a map of class names to boolean values. In the case of a map, the
- *   names of the properties whose values are truthy will be added as css classes to the
+ *   names of the properties whose values are truthy will be added as less classes to the
  *   element.
  *
  * @example Example that demonstrates basic bindings via ngClass directive.
@@ -20842,7 +20842,7 @@ function classDirective(name, selector) {
        <input ng-model="style2" placeholder="Type: bold, strike or red"><br>
        <input ng-model="style3" placeholder="Type: bold, strike or red"><br>
      </file>
-     <file name="style.css">
+     <file name="style.less">
        .strike {
          text-decoration: line-through;
        }
@@ -20854,7 +20854,7 @@ function classDirective(name, selector) {
        }
      </file>
      <file name="protractor.js" type="protractor">
-       var ps = element.all(by.css('p'));
+       var ps = element.all(by.less('p'));
 
        it('should let you toggle the class', function() {
 
@@ -20896,7 +20896,7 @@ function classDirective(name, selector) {
       <br>
       <span class="base-class" ng-class="myVar">Sample Text</span>
      </file>
-     <file name="style.css">
+     <file name="style.less">
        .base-class {
          -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
          transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
@@ -20909,17 +20909,17 @@ function classDirective(name, selector) {
      </file>
      <file name="protractor.js" type="protractor">
        it('should check ng-class', function() {
-         expect(element(by.css('.base-class')).getAttribute('class')).not.
+         expect(element(by.less('.base-class')).getAttribute('class')).not.
            toMatch(/my-class/);
 
          element(by.id('setbtn')).click();
 
-         expect(element(by.css('.base-class')).getAttribute('class')).
+         expect(element(by.less('.base-class')).getAttribute('class')).
            toMatch(/my-class/);
 
          element(by.id('clearbtn')).click();
 
-         expect(element(by.css('.base-class')).getAttribute('class')).not.
+         expect(element(by.less('.base-class')).getAttribute('class')).not.
            toMatch(/my-class/);
        });
      </file>
@@ -20963,7 +20963,7 @@ var ngClassDirective = classDirective('', true);
           </li>
         </ol>
      </file>
-     <file name="style.css">
+     <file name="style.less">
        .odd {
          color: red;
        }
@@ -21011,7 +21011,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
           </li>
         </ol>
      </file>
-     <file name="style.css">
+     <file name="style.less">
        .odd {
          color: red;
        }
@@ -21045,27 +21045,27 @@ var ngClassEvenDirective = classDirective('Even', 1);
  * multiple `ngCloak` directives to small portions of the page to permit progressive rendering
  * of the browser view.
  *
- * `ngCloak` works in cooperation with the following css rule embedded within `angular.js` and
+ * `ngCloak` works in cooperation with the following less rule embedded within `angular.js` and
  * `angular.min.js`.
- * For CSP mode please add `angular-csp.css` to your html file (see {@link ng.directive:ngCsp ngCsp}).
+ * For CSP mode please add `angular-csp.less` to your html file (see {@link ng.directive:ngCsp ngCsp}).
  *
- * ```css
+ * ```less
  * [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
  *   display: none !important;
  * }
  * ```
  *
- * When this css rule is loaded by the browser, all html elements (including their children) that
+ * When this less rule is loaded by the browser, all html elements (including their children) that
  * are tagged with the `ngCloak` directive are hidden. When Angular encounters this directive
  * during the compilation of the template it deletes the `ngCloak` element attribute, making
  * the compiled element visible.
  *
  * For the best result, the `angular.js` script must be loaded in the head section of the html
- * document; alternatively, the css rule above must be included in the external stylesheet of the
+ * document; alternatively, the less rule above must be included in the external stylesheet of the
  * application.
  *
  * Legacy browsers, like IE7, do not provide attribute selector support (added in CSS 2.1) so they
- * cannot match the `[ng\:cloak]` selector. To work around this limitation, you must add the css
+ * cannot match the `[ng\:cloak]` selector. To work around this limitation, you must add the less
  * class `ng-cloak` in addition to the `ngCloak` directive as shown in the example below.
  *
  * @element ANY
@@ -21077,7 +21077,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
         <div id="template2" ng-cloak class="ng-cloak">{{ 'hello IE7' }}</div>
      </file>
      <file name="protractor.js" type="protractor">
-       it('should remove the template directive and css class', function() {
+       it('should remove the template directive and less class', function() {
          expect($('#template1').getAttribute('ng-cloak')).
            toBeNull();
          expect($('#template2').getAttribute('ng-cloak')).
@@ -21352,7 +21352,7 @@ var ngControllerDirective = [function() {
  *
  * CSP forbids JavaScript to inline stylesheet rules. In non CSP mode Angular automatically
  * includes some CSS rules (e.g. {@link ng.directive:ngCloak ngCloak}).
- * To make those directives work in CSP mode, include the `angular-csp.css` manually.
+ * To make those directives work in CSP mode, include the `angular-csp.less` manually.
  *
  * Angular tries to autodetect if CSP is active and automatically turn on the CSP-safe mode. This
  * autodetection however triggers a CSP error to be logged in the console:
@@ -21528,7 +21528,7 @@ var ngControllerDirective = [function() {
      <file name="protractor.js" type="protractor">
        it('should check ng-click', function() {
          expect(element(by.binding('count')).getText()).toMatch('0');
-         element(by.css('button')).click();
+         element(by.less('button')).click();
          expect(element(by.binding('count')).getText()).toMatch('1');
        });
      </file>
@@ -21865,14 +21865,14 @@ forEach(
      <file name="protractor.js" type="protractor">
        it('should check ng-submit', function() {
          expect(element(by.binding('list')).getText()).toBe('list=[]');
-         element(by.css('#submit')).click();
+         element(by.less('#submit')).click();
          expect(element(by.binding('list')).getText()).toContain('hello');
          expect(element(by.model('text')).getAttribute('value')).toBe('');
        });
        it('should ignore empty strings', function() {
          expect(element(by.binding('list')).getText()).toBe('list=[]');
-         element(by.css('#submit')).click();
-         element(by.css('#submit')).click();
+         element(by.less('#submit')).click();
+         element(by.less('#submit')).click();
          expect(element(by.binding('list')).getText()).toContain('hello');
         });
      </file>
@@ -21998,8 +21998,8 @@ forEach(
  * element is reinserted into the DOM.
  *
  * `ngIf` differs from `ngShow` and `ngHide` in that `ngIf` completely removes and recreates the
- * element in the DOM rather than changing its visibility via the `display` css property.  A common
- * case when this difference is significant is when using css selectors that rely on an element's
+ * element in the DOM rather than changing its visibility via the `display` less property.  A common
+ * case when this difference is significant is when using less selectors that rely on an element's
  * position within the DOM, such as the `:first-child` or `:last-child` pseudo-classes.
  *
  * Note that when an element is removed using `ngIf` its scope is destroyed and a new scope
@@ -22038,7 +22038,7 @@ forEach(
         This is removed when the checkbox is unchecked.
       </span>
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .animate-if {
         background:white;
         border:1px solid black;
@@ -22181,7 +22181,7 @@ var ngIfDirective = ['$animate', function($animate) {
     <file name="template2.html">
       Content of template2.html
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .slide-animate-container {
         position:relative;
         background:white;
@@ -22223,7 +22223,7 @@ var ngIfDirective = ['$animate', function($animate) {
     </file>
     <file name="protractor.js" type="protractor">
       var templateSelect = element(by.model('template'));
-      var includeElem = element(by.css('[ng-include]'));
+      var includeElem = element(by.less('[ng-include]'));
 
       it('should load template1.html', function() {
         expect(includeElem.getText()).toMatch(/Content of template1.html/);
@@ -22236,7 +22236,7 @@ var ngIfDirective = ['$animate', function($animate) {
           return;
         }
         templateSelect.click();
-        templateSelect.all(by.css('option')).get(2).click();
+        templateSelect.all(by.less('option')).get(2).click();
         expect(includeElem.getText()).toMatch(/Content of template2.html/);
       });
 
@@ -22246,7 +22246,7 @@ var ngIfDirective = ['$animate', function($animate) {
           return;
         }
         templateSelect.click();
-        templateSelect.all(by.css('option')).get(0).click();
+        templateSelect.all(by.less('option')).get(0).click();
         expect(includeElem.isPresent()).toBe(false);
       });
     </file>
@@ -22451,7 +22451,7 @@ var ngIncludeFillContentDirective = ['$compile',
      </file>
      <file name="protractor.js" type="protractor">
        it('should alias index positions', function() {
-         var elements = element.all(by.css('.example-init'));
+         var elements = element.all(by.less('.example-init'));
          expect(elements.get(0).getText()).toBe('list[ 0 ][ 0 ] = a;');
          expect(elements.get(1).getText()).toBe('list[ 0 ][ 1 ] = b;');
          expect(elements.get(2).getText()).toBe('list[ 1 ][ 0 ] = c;');
@@ -22515,7 +22515,7 @@ var ngInitDirective = ngDirective({
  *     var listInput = element(by.model('names'));
  *     var names = element(by.exactBinding('names'));
  *     var valid = element(by.binding('myForm.namesInput.$valid'));
- *     var error = element(by.css('span.error'));
+ *     var error = element(by.less('span.error'));
  *
  *     it('should initialize to model', function() {
  *       expect(names.getText()).toContain('["morpheus","neo","trinity"]');
@@ -22735,7 +22735,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
  * that content using the `$sce` service.
  *
  * <example name="NgModelController" module="customControl" deps="angular-sanitize.js">
-    <file name="style.css">
+    <file name="style.less">
       [contenteditable] {
         border: 1px solid black;
         background-color: white;
@@ -22799,7 +22799,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
         // and Firefox driver can't clear contenteditables very well
         return;
       }
-      var contentEditable = element(by.css('[contenteditable]'));
+      var contentEditable = element(by.less('[contenteditable]'));
       var content = 'Change me!';
 
       expect(contentEditable.getText()).toEqual(content);
@@ -23449,7 +23449,7 @@ var NgModelController = ['$scope', '$exceptionHandler', '$attrs', '$element', '$
  *   require.
  * - Providing validation behavior (i.e. required, number, email, url).
  * - Keeping the state of the control (valid/invalid, dirty/pristine, touched/untouched, validation errors).
- * - Setting related css classes on the element (`ng-valid`, `ng-invalid`, `ng-dirty`, `ng-pristine`, `ng-touched`, `ng-untouched`) including animations.
+ * - Setting related less classes on the element (`ng-valid`, `ng-invalid`, `ng-dirty`, `ng-pristine`, `ng-touched`, `ng-untouched`) including animations.
  * - Registering the control with its parent {@link ng.directive:form form}.
  *
  * Note: `ngModel` will try to bind to the property given by evaluating the expression on the
@@ -23957,7 +23957,7 @@ function isObjectEmpty(obj) {
       <file name="protractor.js" type="protractor">
        it('should check ng-non-bindable', function() {
          expect(element(by.binding('1 + 2')).getText()).toContain('3');
-         expect(element.all(by.css('div')).last().getText()).toMatch(/1 \+ 2/);
+         expect(element.all(by.less('div')).last().getText()).toMatch(/1 \+ 2/);
        });
       </file>
     </example>
@@ -24089,8 +24089,8 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
       </file>
       <file name="protractor.js" type="protractor">
         it('should show correct pluralized string', function() {
-          var withoutOffset = element.all(by.css('ng-pluralize')).get(0);
-          var withOffset = element.all(by.css('ng-pluralize')).get(1);
+          var withoutOffset = element.all(by.less('ng-pluralize')).get(0);
+          var withOffset = element.all(by.less('ng-pluralize')).get(1);
           var countInput = element(by.model('personCount'));
 
           expect(withoutOffset.getText()).toEqual('1 person is viewing.');
@@ -24121,7 +24121,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
           expect(withOffset.getText()).toEqual('Igor, Misko and 2 other people are viewing.');
         });
         it('should show data-bound names', function() {
-          var withOffset = element.all(by.css('ng-pluralize')).get(1);
+          var withOffset = element.all(by.less('ng-pluralize')).get(1);
           var personCount = element(by.model('personCount'));
           var person1 = element(by.model('person1'));
           var person2 = element(by.model('person2'));
@@ -24412,7 +24412,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
         </ul>
       </div>
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .example-animate-container {
         background:white;
         border:1px solid black;
@@ -24714,7 +24714,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * provided to the `ngShow` attribute. The element is shown or hidden by removing or adding
  * the `.ng-hide` CSS class onto the element. The `.ng-hide` CSS class is predefined
  * in AngularJS and sets the display style to none (using an !important flag).
- * For CSP mode please add `angular-csp.css` to your html file (see {@link ng.directive:ngCsp ngCsp}).
+ * For CSP mode please add `angular-csp.less` to your html file (see {@link ng.directive:ngCsp ngCsp}).
  *
  * ```html
  * <!-- when $scope.myValue is truthy (element is visible) -->
@@ -24746,7 +24746,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * class CSS. Note that the selector that needs to be used is actually `.ng-hide:not(.ng-hide-animate)` to cope
  * with extra animation classes that can be added.
  *
- * ```css
+ * ```less
  * .ng-hide:not(.ng-hide-animate) {
  *   /&#42; this is just another form of hiding an element &#42;/
  *   display: block!important;
@@ -24765,7 +24765,7 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * you must also include the !important flag to override the display property
  * so that you can perform an animation when the element is hidden during the time of the animation.
  *
- * ```css
+ * ```less
  * //
  * //a working example can be found at the bottom of this page
  * //
@@ -24815,10 +24815,10 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
         </div>
       </div>
     </file>
-    <file name="glyphicons.css">
-      @import url(../../components/bootstrap-3.1.1/css/bootstrap.css);
+    <file name="glyphicons.less">
+      @import url(../../components/bootstrap-3.1.1/less/bootstrap.less);
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .animate-show {
         line-height: 20px;
         opacity: 1;
@@ -24846,8 +24846,8 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
       }
     </file>
     <file name="protractor.js" type="protractor">
-      var thumbsUp = element(by.css('span.glyphicon-thumbs-up'));
-      var thumbsDown = element(by.css('span.glyphicon-thumbs-down'));
+      var thumbsUp = element(by.less('span.glyphicon-thumbs-up'));
+      var thumbsDown = element(by.less('span.glyphicon-thumbs-down'));
 
       it('should check ng-show / ng-hide', function() {
         expect(thumbsUp.isDisplayed()).toBeFalsy();
@@ -24889,7 +24889,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * provided to the `ngHide` attribute. The element is shown or hidden by removing or adding
  * the `ng-hide` CSS class onto the element. The `.ng-hide` CSS class is predefined
  * in AngularJS and sets the display style to none (using an !important flag).
- * For CSP mode please add `angular-csp.css` to your html file (see {@link ng.directive:ngCsp ngCsp}).
+ * For CSP mode please add `angular-csp.less` to your html file (see {@link ng.directive:ngCsp ngCsp}).
  *
  * ```html
  * <!-- when $scope.myValue is truthy (element is hidden) -->
@@ -24920,7 +24920,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * the hide behavior with ngShow/ngHide then this can be achieved by restating the styles for the `.ng-hide`
  * class in CSS:
  *
- * ```css
+ * ```less
  * .ng-hide {
  *   /&#42; this is just another form of hiding an element &#42;/
  *   display: block!important;
@@ -24938,7 +24938,7 @@ var ngShowDirective = ['$animate', function($animate) {
  * is true and false. This system works like the animation system present with ngClass, except that the `.ng-hide`
  * CSS class is added and removed for you instead of your own CSS class.
  *
- * ```css
+ * ```less
  * //
  * //a working example can be found at the bottom of this page
  * //
@@ -24980,10 +24980,10 @@ var ngShowDirective = ['$animate', function($animate) {
         </div>
       </div>
     </file>
-    <file name="glyphicons.css">
-      @import url(../../components/bootstrap-3.1.1/css/bootstrap.css);
+    <file name="glyphicons.less">
+      @import url(../../components/bootstrap-3.1.1/less/bootstrap.less);
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .animate-hide {
         -webkit-transition: all linear 0.5s;
         transition: all linear 0.5s;
@@ -25007,8 +25007,8 @@ var ngShowDirective = ['$animate', function($animate) {
       }
     </file>
     <file name="protractor.js" type="protractor">
-      var thumbsUp = element(by.css('span.glyphicon-thumbs-up'));
-      var thumbsDown = element(by.css('span.glyphicon-thumbs-down'));
+      var thumbsUp = element(by.less('span.glyphicon-thumbs-up'));
+      var thumbsDown = element(by.less('span.glyphicon-thumbs-down'));
 
       it('should check ng-show / ng-hide', function() {
         expect(thumbsUp.isDisplayed()).toBeFalsy();
@@ -25066,19 +25066,19 @@ var ngHideDirective = ['$animate', function($animate) {
         <span ng-style="myStyle">Sample Text</span>
         <pre>myStyle={{myStyle}}</pre>
      </file>
-     <file name="style.css">
+     <file name="style.less">
        span {
          color: black;
        }
      </file>
      <file name="protractor.js" type="protractor">
-       var colorSpan = element(by.css('span'));
+       var colorSpan = element(by.less('span'));
 
        it('should check ng-style', function() {
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
-         element(by.css('input[value=\'set color\']')).click();
+         element(by.less('input[value=\'set color\']')).click();
          expect(colorSpan.getCssValue('color')).toBe('rgba(255, 0, 0, 1)');
-         element(by.css('input[value=clear]')).click();
+         element(by.less('input[value=clear]')).click();
          expect(colorSpan.getCssValue('color')).toBe('rgba(0, 0, 0, 1)');
        });
      </file>
@@ -25170,7 +25170,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
           $scope.selection = $scope.items[0];
         }]);
     </file>
-    <file name="animations.css">
+    <file name="animations.less">
       .animate-switch-container {
         position:relative;
         background:white;
@@ -25204,18 +25204,18 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
       }
     </file>
     <file name="protractor.js" type="protractor">
-      var switchElem = element(by.css('[ng-switch]'));
+      var switchElem = element(by.less('[ng-switch]'));
       var select = element(by.model('selection'));
 
       it('should start in settings', function() {
         expect(switchElem.getText()).toMatch(/Settings Div/);
       });
       it('should change to home', function() {
-        select.all(by.css('option')).get(1).click();
+        select.all(by.less('option')).get(1).click();
         expect(switchElem.getText()).toMatch(/Home Span/);
       });
       it('should select default', function() {
-        select.all(by.css('option')).get(2).click();
+        select.all(by.less('option')).get(2).click();
         expect(switchElem.getText()).toMatch(/default/);
       });
     </file>
@@ -25397,8 +25397,8 @@ var ngTranscludeDirective = ngDirective({
     </file>
     <file name="protractor.js" type="protractor">
       it('should load template defined inside script tag', function() {
-        element(by.css('#tpl-link')).click();
-        expect(element(by.css('#tpl-content')).getText()).toMatch(/Content of the template/);
+        element(by.less('#tpl-link')).click();
+        expect(element(by.less('#tpl-content')).getText()).toMatch(/Content of the template/);
       });
     </file>
   </example>
@@ -25593,10 +25593,10 @@ var ngOptionsMinErr = minErr('ngOptions');
          it('should check ng-options', function() {
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('red');
            element.all(by.model('myColor')).first().click();
-           element.all(by.css('select[ng-model="myColor"] option')).first().click();
+           element.all(by.less('select[ng-model="myColor"] option')).first().click();
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('black');
-           element(by.css('.nullable select[ng-model="myColor"]')).click();
-           element.all(by.css('.nullable select[ng-model="myColor"] option')).first().click();
+           element(by.less('.nullable select[ng-model="myColor"]')).click();
+           element.all(by.less('.nullable select[ng-model="myColor"] option')).first().click();
            expect(element(by.binding('{selected_color:myColor}')).getText()).toMatch('null');
          });
       </file>
@@ -26306,4 +26306,4 @@ var minlengthDirective = function() {
 
 })(window, document);
 
-!window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');
+!window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/less">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');

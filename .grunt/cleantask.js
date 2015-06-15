@@ -2,6 +2,6 @@ module.exports =  {
     all: ['.build'],
     scripts: ['.build/main-app/app/scripts'],
     images: ['.build/main-app/app/images'],
-    css: ['.build/main-app/app/css'],
+    css: ['.build/main-app/app/less'],
     html:['.build/main-app/app/index.html'],
 };
