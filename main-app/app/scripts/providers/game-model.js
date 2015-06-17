@@ -34,16 +34,34 @@
 
             var snapPot = [];
 
+            console.log(hand1);
+            console.log(hand2);
+
+
+
             window.addEventListener('keydown', checkKeyPressed, false);
 
             function checkKeyPressed(e) {
                 if (e.keyCode == '32') {
                     alert('The Spacebar key is pressed.');
+                    snapPot = hand1.splice(0,1).concat(snapPot);
+                    console.log(snapPot);
+
+                    return;
+                }
+
+
+                if(e.keyCode == '32') {
+                    alert('The Spacebar key is pressed on hand2.');
+                    snapPot = hand2.splice(0,1).concat(snapPot);
+
+                    console.log(snapPot);
 
                 }
+                else{
+                    alert('ERROR');
+                }
             }
-
-
 
 
         });
