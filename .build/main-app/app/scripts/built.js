@@ -55,9 +55,9 @@ angular.module('tombola.snapCardGame',[
 
 
 
-            window.addEventListener('keydown', playerTurn , false);
+            window.addEventListener('keydown', playerTurns , false);
 
-            function playerTurn(e) {
+            function playerTurns(e) {
 
                 if (e.keyCode == '32') {
                     alert('The Spacebar key is pressed.');
@@ -71,14 +71,14 @@ angular.module('tombola.snapCardGame',[
                     snapPot = hand2.splice(0,1).concat(snapPot);
 
                     console.log(snapPot);
+
                 }
-                else{
-                    alert('ERROR');
+                if(snapPot[0] === snapPot[1]){
+
+                    console.log('snap');
                 }
+
             }
-
-                console.log(snapPot);
-
 
         });
 
