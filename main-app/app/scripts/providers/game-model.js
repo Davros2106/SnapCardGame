@@ -39,29 +39,29 @@
 
 
 
-            window.addEventListener('keydown', checkKeyPressed, false);
+            window.addEventListener('keydown', playerTurn , false);
 
-            function checkKeyPressed(e) {
+            function playerTurn(e) {
+
                 if (e.keyCode == '32') {
                     alert('The Spacebar key is pressed.');
                     snapPot = hand1.splice(0,1).concat(snapPot);
-                    console.log(snapPot);
 
-                    return;
+                    console.log(snapPot);
                 }
 
-
-                if(e.keyCode == '32') {
+                if (e.keyCode == '32') {
                     alert('The Spacebar key is pressed on hand2.');
                     snapPot = hand2.splice(0,1).concat(snapPot);
 
                     console.log(snapPot);
-
                 }
                 else{
                     alert('ERROR');
                 }
             }
+
+                console.log(snapPot);
 
 
         });
