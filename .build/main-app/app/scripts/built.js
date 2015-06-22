@@ -59,7 +59,7 @@ angular.module('tombola.snapCardGame',[
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{4}}"></div>'
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite()}}"></div>'
 
             };
         })

@@ -1,0 +1,31 @@
+{
+  "name": "SnapCardGame",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Davros2106/SnapCardGame",
+  "authors": [
+    "Davros2106"
+  ],
+  "description": "Snam",
+  "main": "gruntfile.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "snap",
+    "game",
+    "dank",
+    "meme"
+  ],
+  "license": "GNU",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-mocks": "~1.4.1"
+  }
+}
