@@ -1,56 +1,91 @@
-angular.module('tombola.snapCardGame.gameModel',[]);
+angular.module('tombola.snapCardGame.GameModel',[]);
+angular.module('tombola.snapCardGame.DeckService',[]);
+angular.module('tombola.snapCardGame.controller',[]);
 angular.module('tombola.snapCardGame.directives',[]);
 angular.module('tombola.snapCardGame',[
-    'tombola.snapCardGame.gameModel',
+    'tombola.snapCardGame.GameModel',
+    'tombola.snapCardGame.DeckService',
+    'tombola.snapCardGame.controller',
     'tombola.snapCardGame.directives'
 ]);
 
-/**
- @module Tombola.Core.<MODULE_NAME>
- @class <ENTITY_NAME>
- */
 (function () {
     'use strict';
+    angular.module('tombola.snapCardGame.DeckService')
 
-    // FEED ME CODE....
-})();
-(function () {
-    'use strict';
-    angular.module('tombola.snapCardGame.gameModel')
+        .service('DeckService', function() {
 
-        .service('gameModel', function() {
-
-
-            var deck = [];
-
-            var suits = [1, 2, 3, 4];
-
+            var deck = [],
+                numberOfHands = 2,
+                cardsPerSuit = 5;
 
             var makeDeck = function () {
 
+                var suits = [1,2,3,4];
+
                 for (var i = 0; i < suits.length; i++) {
-                    for (var j = 0; j < 5; j++) {
-                        deck[i * 5 + j] = suits[i];
+                    for (var j = 0; j < cardsPerSuit; j++) {
+                        deck[i * cardsPerSuit + j] = suits[i];
                     }
                 }
 
             };
 
-            makeDeck();
 
-            deck.sort(function () {
-                return (Math.round(Math.random()) - 0.5);
-            });
+            var shuffle = function(){
+
+                deck.sort(function () {
+                    return (Math.round(Math.random()) - 0.5);});
+
+            };
 
 
-            this.hand1 = deck.splice(0, 10);
+            var deal = function() {
 
-            this.hand2 = deck.splice(0, 10);
+                for (var i = 0; i < numberOfHands; i++) {
 
+                    deck.splice(deck.length / numberOfHands);
+
+                    }
+
+            };
+
+
+            var gameDeck = function() {
+
+                makeDeck();
+                shuffle();
+                deal();
+
+            };
+
+
+            gameDeck();
+            console.log(deck);
 
         });
 
 })();
+
+(function () {
+    angular.module('tombola.snapCardGame.GameModel')
+
+        .service('GameModel', function() {
+
+            this.playerTurn = function () {
+
+
+
+
+
+
+            };
+
+        });
+
+
+
+        })();
 (function () {
     'use strict';
     angular.module('tombola.snapCardGame.directives')
@@ -59,7 +94,7 @@ angular.module('tombola.snapCardGame',[
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{gameModel.getResultSprite()}}"></div>'
+                template: '<div class="snapCard showImg{{gameModel.deck()}}" ng-click="makeMove"></div>'
 
             };
         })
@@ -77,10 +112,19 @@ angular.module('tombola.snapCardGame',[
 
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame')
+    angular.module('tombola.snapCardGame.controller')
 
-        .controller('snapCardController',['$scope','gameModel',function ($scope, gameModel){
+        .controller('SnapCardController',['$scope','GameModel','DeckService',function ($scope, GameModel, DeckService){
 
-            $scope.gameModel = gameModel;
+            $scope.GameModel = GameModel;
+
+            $scope.DeckService = DeckService;
+
+
+            $scope.playerTurn = function () {
+
+            };
+
+
         }]);
 })();
