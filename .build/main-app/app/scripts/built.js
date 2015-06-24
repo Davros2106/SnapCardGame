@@ -17,20 +17,22 @@ angular.module('tombola.snapCardGame',[
 
             var deck = [],
                 numberOfHands = 2,
-                cardsPerSuit = 5;
+                hand1 = [],
+                hand2 = [];
+
 
             var makeDeck = function () {
 
-                var suits = [1,2,3,4];
+                var suits = [1,2,3,4],
+                    cardsPerSuit = 5;
 
                 for (var i = 0; i < suits.length; i++) {
                     for (var j = 0; j < cardsPerSuit; j++) {
-                        deck[i * cardsPerSuit + j] = suits[i];
+                            deck[i * cardsPerSuit + j] = suits[i];
+
+                        }
                     }
-                }
-
             };
-
 
             var shuffle = function(){
 
@@ -39,17 +41,13 @@ angular.module('tombola.snapCardGame',[
 
             };
 
+            var deal = function(){
 
-            var deal = function() {
 
-                for (var i = 0; i < numberOfHands; i++) {
-
-                    deck.splice(deck.length / numberOfHands);
-
-                    }
+                    hand1 = deck.splice(0, deck.length / numberOfHands);
+                    hand2 = deck.splice(0, deck.length);
 
             };
-
 
             var gameDeck = function() {
 
@@ -61,7 +59,8 @@ angular.module('tombola.snapCardGame',[
 
 
             gameDeck();
-            console.log(deck);
+            console.log(hand2);
+            console.log(hand1);
 
         });
 
@@ -73,10 +72,6 @@ angular.module('tombola.snapCardGame',[
         .service('GameModel', function() {
 
             this.playerTurn = function () {
-
-
-
-
 
 
             };
@@ -94,7 +89,7 @@ angular.module('tombola.snapCardGame',[
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{gameModel.deck()}}" ng-click="makeMove"></div>'
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite}}" ng-click="makeMove"></div>'
 
             };
         })

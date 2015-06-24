@@ -6,7 +6,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{gameModel.deck()}}" ng-click="makeMove"></div>'
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite}}" ng-click="makeMove"></div>'
 
             };
         })

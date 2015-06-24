@@ -6,20 +6,22 @@
 
             var deck = [],
                 numberOfHands = 2,
-                cardsPerSuit = 5;
+                hand1 = [],
+                hand2 = [];
+
 
             var makeDeck = function () {
 
-                var suits = [1,2,3,4];
+                var suits = [1,2,3,4],
+                    cardsPerSuit = 5;
 
                 for (var i = 0; i < suits.length; i++) {
                     for (var j = 0; j < cardsPerSuit; j++) {
-                        deck[i * cardsPerSuit + j] = suits[i];
+                            deck[i * cardsPerSuit + j] = suits[i];
+
+                        }
                     }
-                }
-
             };
-
 
             var shuffle = function(){
 
@@ -28,17 +30,13 @@
 
             };
 
+            var deal = function(){
 
-            var deal = function() {
 
-                for (var i = 0; i < numberOfHands; i++) {
-
-                    deck.splice(deck.length / numberOfHands);
-
-                    }
+                    hand1 = deck.splice(0, deck.length / numberOfHands);
+                    hand2 = deck.splice(0, deck.length);
 
             };
-
 
             var gameDeck = function() {
 
@@ -50,7 +48,8 @@
 
 
             gameDeck();
-            console.log(deck);
+            console.log(hand2);
+            console.log(hand1);
 
         });
 
