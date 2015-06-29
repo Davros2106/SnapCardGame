@@ -5,14 +5,14 @@
         .service('DeckService', function() {
 
             var deck = [],
-                numberOfHands = 2,
                 hand1 = [],
-                hand2 = [];
+                hand2 = [],
+                numberOfHands = 2;
 
 
             var makeDeck = function () {
 
-                var suits = [1,2,3,4],
+                var suits = ['Shrek','Trebuchet','neckbeard','pepe'],
                     cardsPerSuit = 5;
 
                 for (var i = 0; i < suits.length; i++) {
