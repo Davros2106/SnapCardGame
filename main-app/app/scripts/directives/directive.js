@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.directives')
+    angular.module('Tombola.SnapCardGame.Directives')
 
         .directive('cardSpace', function () {
             return {

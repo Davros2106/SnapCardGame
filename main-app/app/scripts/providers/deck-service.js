@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.DeckService')
+    angular.module('Tombola.SnapCardGame.Deck')
 
         .service('DeckService', function() {
 

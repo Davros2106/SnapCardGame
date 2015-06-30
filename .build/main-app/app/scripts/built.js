@@ -1,17 +1,15 @@
-angular.module('tombola.snapCardGame.GameModel',[]);
-angular.module('tombola.snapCardGame.DeckService',[]);
-angular.module('tombola.snapCardGame.controller',[]);
-angular.module('tombola.snapCardGame.directives',[]);
-angular.module('tombola.snapCardGame',[
-    'tombola.snapCardGame.GameModel',
-    'tombola.snapCardGame.DeckService',
-    'tombola.snapCardGame.controller',
-    'tombola.snapCardGame.directives'
+angular.module('Tombola.SnapCardGame.Game',[]);
+angular.module('Tombola.SnapCardGame.Deck',[]);
+angular.module('Tombola.SnapCardGame.Directives',[]);
+angular.module('Tombola.SnapCardGame',[
+    'Tombola.SnapCardGame.Game',
+    'Tombola.SnapCardGame.Deck',
+    'Tombola.SnapCardGame.Directives'
 ]);
 
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.DeckService')
+    angular.module('Tombola.SnapCardGame.Deck')
 
         .service('DeckService', function() {
 
@@ -67,7 +65,7 @@ angular.module('tombola.snapCardGame',[
 })();
 
 (function () {
-    angular.module('tombola.snapCardGame.GameModel')
+    angular.module('Tombola.SnapCardGame.Game')
 
         .service('GameModel', function() {
 
@@ -83,7 +81,7 @@ angular.module('tombola.snapCardGame',[
         })();
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.directives')
+    angular.module('Tombola.SnapCardGame.Directives')
 
         .directive('cardSpace', function () {
             return {
@@ -107,7 +105,7 @@ angular.module('tombola.snapCardGame',[
 
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.controller')
+    angular.module('Tombola.SnapCardGame')
 
         .controller('SnapCardController',['$scope','GameModel','DeckService',function ($scope, GameModel, DeckService){
 

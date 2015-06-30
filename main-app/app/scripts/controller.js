@@ -1,7 +1,7 @@
 
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame.controller')
+    angular.module('Tombola.SnapCardGame')
 
         .controller('SnapCardController',['$scope','GameModel','DeckService',function ($scope, GameModel, DeckService){
 

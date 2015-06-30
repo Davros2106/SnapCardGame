@@ -1,6 +1,6 @@
 
 (function () {
-    angular.module('tombola.snapCardGame.GameModel')
+    angular.module('Tombola.SnapCardGame.Game')
 
         .service('GameModel', function() {
 
