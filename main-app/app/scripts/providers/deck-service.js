@@ -2,17 +2,16 @@
     'use strict';
     angular.module('Tombola.SnapCardGame.Deck')
 
-        .service('DeckService', function() {
+        .service('DeckService', function () {
 
             var deck = [],
                 hand1 = [],
                 hand2 = [],
                 numberOfHands = 2;
 
-
             var makeDeck = function () {
 
-                var suits = ['Shrek','Trebuchet','neckbeard','pepe'],
+                var suits = ['Shrek', 'Trebuchet', 'neckbeard', 'pepe'],
                     cardsPerSuit = 5;
 
                 for (var i = 0; i < suits.length; i++) {
@@ -23,22 +22,21 @@
                     }
             };
 
-            var shuffle = function(){
+            var shuffle = function () {
 
                 deck.sort(function () {
                     return (Math.round(Math.random()) - 0.5);});
 
             };
 
-            var deal = function(){
-
+            var deal = function () {
 
                     hand1 = deck.splice(0, deck.length / numberOfHands);
                     hand2 = deck.splice(0, deck.length);
 
             };
 
-            var gameDeck = function() {
+            var gameDeck = function () {
 
                 makeDeck();
                 shuffle();
@@ -46,11 +44,9 @@
 
             };
 
-
             gameDeck();
             console.log(hand2);
             console.log(hand1);
-
         });
 
 })();

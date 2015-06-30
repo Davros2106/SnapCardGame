@@ -1,16 +1,12 @@
-
 (function () {
     angular.module('Tombola.SnapCardGame.Game')
 
-        .service('GameModel', function() {
+        .service('GameModel', function () {
 
             this.playerTurn = function () {
-
 
             };
 
         });
-
-
 
         })();
