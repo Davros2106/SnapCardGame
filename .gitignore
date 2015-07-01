@@ -1,5 +1,5 @@
 **.log
-.buildzzz
+.build
 .idea
 bower_components
 node_modules
