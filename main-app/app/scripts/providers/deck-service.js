@@ -8,7 +8,6 @@
                 hand1 = [],
                 hand2 = [],
                 numberOfHands = 2,
-
                 makeDeck = function () {
 
                 var numberOfSuits = 5,
@@ -20,12 +19,10 @@
                         }
                     }
                 },
-
                 shuffle = function () {
                     deck.sort(function () {
                     return (Math.round(Math.random()) - 0.5);});
                 },
-
                 deal = function () {
                     hand1 = deck.splice(0, deck.length / numberOfHands);
                     hand2 = deck.splice(0, deck.length);
@@ -36,9 +33,7 @@
                 makeDeck();
                 shuffle();
                 deal();
-
                 };
-
                 gameDeck();
         });
 })();

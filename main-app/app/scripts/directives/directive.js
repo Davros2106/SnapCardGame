@@ -9,7 +9,6 @@
                 template: '<div class="snapCard showImg{{gameModel.getResultSprite}}"></div>'
             };
         })
-
     .directive('cardSpace1', function () {
         return {
             restrict: 'E',
