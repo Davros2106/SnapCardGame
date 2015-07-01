@@ -1,33 +1,28 @@
+@cardHeight: 252px;
+@cardWidth: 180px;
 .snapCard {
   background: url(/images/DankMemeSnap.png) 0 0;
   background-size: 900px 252px;
-  height: 252px;
-  width: 180px;
+  height: @cardHeight;
+  width: @cardWidth;
   border: 3px solid #000000;
   display: inline-block;
+  background-position: 0;
 
-  &.showImg1{
-    background-position:  -170px 0;
+  &.mlady{
+    background-position:  -1 * @cardWidth 0;
   }
 
-  &.showImg2{
+  &.shrek{
     background-position: -365px 0;
   }
 
-  &.showImg3{
+  &.pepe{
     background-position: -543px 0;
   }
 
-  &.showImg4 {
+  &.trebuchet {
     background-position: -720px 0;
   }
-
-  &.showImg5{
-    background-position: 2px 0;
-  }
-
-
-
-
 };
 

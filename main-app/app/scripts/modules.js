@@ -1,6 +1,7 @@
-angular.module('tombola.snapCardGame.gameModel',[]);
-angular.module('tombola.snapCardGame.directives',[]);
-angular.module('tombola.snapCardGame',[
-    'tombola.snapCardGame.gameModel',
-    'tombola.snapCardGame.directives'
+angular.module('Tombola.SnapCardGame.Game', []);
+angular.module('Tombola.SnapCardGame.Deck', []);
+
+angular.module('Tombola.SnapCardGame', [
+    'Tombola.SnapCardGame.Game',
+    'Tombola.SnapCardGame.Deck'
 ]);

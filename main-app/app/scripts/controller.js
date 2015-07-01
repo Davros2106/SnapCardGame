@@ -1,10 +1,8 @@
-
 (function () {
     'use strict';
-    angular.module('tombola.snapCardGame')
-
-        .controller('snapCardController',['$scope','gameModel',function ($scope, gameModel){
-
-            $scope.gameModel = gameModel;
+    angular.module('Tombola.SnapCardGame')
+        .controller('SnapCardController', ['$scope', 'GameModel', 'DeckService', function ($scope, gameModel, deckService){
+            $scope.GameModel = gameModel;
+            $scope.DeckService = deckService;
         }]);
 })();
