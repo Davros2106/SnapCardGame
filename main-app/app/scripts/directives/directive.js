@@ -6,8 +6,7 @@
             return {
                 restrict: 'E',
                 replace: true,
-                template: '<div class="snapCard showImg{{gameModel.getResultSprite}}" ng-click="makeMove"></div>'
-
+                template: '<div class="snapCard showImg{{gameModel.getResultSprite}}"></div>'
             };
         })
 
@@ -16,8 +15,6 @@
             restrict: 'E',
             replace: true,
             template: '<div class="snapCard showImg{{gameModel.getResultSprite1()}}"></div>'
-
         };
     });
-
 })();
