@@ -1,19 +1,18 @@
 (function () {
     'use strict';
     angular.module('Tombola.SnapCardGame.Deck')
-        .service('ShuffleAndDeal', function () {
-
+        .service('ShuffleAndDeal', ['GenerateDeck', function (generateDeck) {
             var numberOfHands = 2,
                 hand1 = [],
-                hand2 = [],
-            shuffle = function () {
-                deck.sort(function () {
-                    return (Math.round(Math.random()) - 0.5);});
-            },
-
-            deal = function () {
-                hand1 = deck.splice(0, deck.length / numberOfHands);
-                hand2 = deck.splice(0, deck.length);
-            };
-        });
+                hand2 = [];
+                this.shuffle = function () {
+                    generateDeck.deck.sort(function () {
+                        return (Math.round(Math.random()) - 0.5);});
+                 };
+                this.deal = function () {
+                    hand1 = generateDeck.deck.splice(0, deck.length / numberOfHands);
+                    hand2 = generateDeck.deck.splice(0, deck.length);
+                    console.log(deal);
+                };
+        }]);
 })();
