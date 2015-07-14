@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('Tombola.SnapCardGame.Deck')
-        .factory('GenerateDeck', ['ShuffleAndDeal',function (ShuffleAndDeal) {
+        .factory('GenerateDeck', ['ShuffleAndDeal', function (ShuffleAndDeal) {
             var DeckGeneration = function () {
                 var deck = [];
                 this.makeDeck = function () {
@@ -13,8 +13,10 @@
                             deck[i * cardsPerSuit + j] = suits[i];
                         }
                     }
-                    ShuffleAndDeal.shuffle(deck);
-                    ShuffleAndDeal.deal(deck);
+                    this.shuffleAndDeal = function () {
+                        ShuffleAndDeal.shuffle(deck);
+                        ShuffleAndDeal.deal(deck);
+                    };
                 };
             };
             return new DeckGeneration();
