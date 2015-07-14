@@ -15,7 +15,6 @@
                     }
                     ShuffleAndDeal.shuffle(deck);
                     ShuffleAndDeal.deal(deck);
-
                 };
             };
             return new DeckGeneration();
