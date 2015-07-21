@@ -2,11 +2,12 @@
     'use strict';
     angular.module('Tombola.SnapCardGame')
         .controller('SnapCardController',
-        ['$scope', 'GenerateDeck', function ($scope, GenerateDeck) {
-            $scope.GenerateDeck = GenerateDeck;
+        ['$scope', 'DeckFactory', function ($scope, DeckFactory) {
+            $scope.DeckFactory = DeckFactory;
             $scope.newGame = function () {
-                GenerateDeck.makeDeck();
-                GenerateDeck.shuffleAndDeal();
+                DeckFactory.create();
+                DeckFactory.shuffle();
+                DeckFactory.deal();
             };
         }]);
 })();
