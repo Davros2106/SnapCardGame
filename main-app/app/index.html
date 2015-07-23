@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="Tombola.SnapCardGame">
-
 <head lang="en">
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="/less/import.min.css">
 </head>
-<body ng-controller="SnapCardController">ß
-    <!--<div class="snapCard" ng-show="hand1.length > 0"></div>-->
-    <div class="snapCard"></div>
-    <!--<div class="snapCard {{snapPot[0] | toCardName}}}"></div>-->
-    <div class="snapCard trebuchet"></div>
-    <div class="snapCard"></div>
+<body ng-controller="SnapCardController">
+<!--<div class="snapCard" ng-show="hand1.length > 0"></div>-->
+<div class="snapCard"></div>
+<!--<div class="snapCard {{snapPot[0] | toCardName}}}"></div>-->
+<div class="snapCard trebuchet"></div>
+<button ng-click="newGame()">NEW GAME</button>
+<div class="snapCard"></div>
 <script src="scripts/built.js"></script>
 </body>
 </html>
